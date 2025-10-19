@@ -1,0 +1,114 @@
+clc;
+clear;
+close all;
+
+
+
+N = input('Enter the length of the window N: ');
+W = linspace(-pi, pi, 1000);
+Wr = sin((W*N)/2) ./ sin(W/2);
+Whn = 0.5*Wr + 0.25*(sin((W*N/2 - pi*N/(N-1)))./sin(W/2 - pi/(N-1)))+ 0.25*(sin((W*N/2 + pi*N/(N-1)))./sin(W/2 + pi/(N-1)));
+
+Whm = 0.54*Wr + 0.23*(sin((W*N/2 - pi*N/(N-1)))./sin(W/2 - pi/(N-1)))+ 0.23*(sin((W*N/2 + pi*N/(N-1)))./sin(W/2 + pi/(N-1)));
+
+WB = 0.42*Wr + 0.25*(sin((W*N/2 - pi*N/(N-1)))./sin(W/2 - pi/(N-1)))+ 0.25*(sin((W*N/2 + pi*N/(N-1)))./sin(W/2 + pi/(N-1)))+ 0.04*(sin((W*N/2 - 2*pi*N/(N-1)))./sin(W/2 - 2*pi/(N-1)))+ 0.04*(sin((W*N/2 + 2*pi*N/(N-1)))./sin(W/2 + 2*pi/(N-1)));
+
+subplot(4,2,1);
+plot(W/pi, 20*log10(abs(Wr)));
+title('Rectangular Window Spectrum');
+xlabel('Normalized Frequency'); ylabel('Magnitude (dB)'); legend('23UEC095');
+
+subplot(4,2,2);
+plot(W/pi, angle(Wr));
+title('Rectangular Window Phase');
+xlabel('Normalized Frequency'); ylabel('Phase (radians)');legend('23UEC095');
+
+subplot(4,2,3);
+plot(W/pi, 20*log10(abs(Whn)));
+title('Hanning Window Spectrum');
+xlabel('Normalized Frequency'); ylabel('Magnitude (dB)'); legend('23UEC095');
+
+subplot(4,2,4);
+plot(W/pi, angle(Whn)); 
+title('Hanning Window Phase');
+xlabel('Normalized Frequency'); ylabel('Phase (radians)'); legend('23UEC095');
+
+subplot(4,2,5);
+plot(W/pi, 20*log10(abs(Whm)));
+title('Hamming Window Spectrum');
+xlabel('Normalized Frequency '); ylabel('Magnitude (dB)'); legend('23UEC095');
+
+subplot(4,2,6);
+plot(W/pi, angle(Whm)); 
+title('Hamming Window Phase');
+xlabel('Normalized Frequency'); ylabel('Phase (radians)');legend('23UEC095');
+
+subplot(4,2,7);
+plot(W/pi, 20*log10(abs(WB))); 
+title('Blackman Window Spectrum');
+xlabel('Normalized Frequency '); ylabel('Magnitude (dB)'); legend('23UEC095');
+
+subplot(4,2,8);
+plot(W/pi, angle(WB));
+title('Blackman Window Phase');
+xlabel('Normalized Frequency'); ylabel('Phase (radians)'); legend('23UEC095');
+
+clc;
+clear;
+close all;
+
+N = input('Enter the length of the window N: ');
+W = linspace(-pi, pi, 1000);
+Wr = sin((W*N)/2) ./ sin(W/2);
+Whn = 0.5*Wr + 0.25*(sin((W*N/2 - pi*N/(N-1)))./sin(W/2 - pi/(N-1)))+ 0.25*(sin((W*N/2 + pi*N/(N-1)))./sin(W/2 + pi/(N-1)));
+Whm = 0.54*Wr + 0.23*(sin((W*N/2 - pi*N/(N-1)))./sin(W/2 - pi/(N-1)))+ 0.23*(sin((W*N/2 + pi*N/(N-1)))./sin(W/2 + pi/(N-1)));
+WB = 0.42*Wr + 0.25*(sin((W*N/2 - pi*N/(N-1)))./sin(W/2 - pi/(N-1)))+ 0.25*(sin((W*N/2 + pi*N/(N-1)))./sin(W/2 + pi/(N-1)))+ 0.04*(sin((W*N/2 - 2*pi*N/(N-1)))./sin(W/2 - 2*pi/(N-1)))+ 0.04*(sin((W*N/2 + 2*pi*N/(N-1)))./sin(W/2 + 2*pi/(N-1)));
+
+subplot(4,2,1);
+p1 = plot(W/pi, 20*log10(abs(Wr)));
+title('Rectangular Window Spectrum');
+xlabel('Normalized Frequency'); ylabel('Magnitude (dB)');
+legend('23UEC095');
+
+subplot(4,2,2);
+plot(W/pi, angle(Wr));
+title('Rectangular Window Phase');
+xlabel('Normalized Frequency'); ylabel('Phase (radians)');
+legend('23UEC095');
+
+subplot(4,2,3);
+p2 = plot(W/pi, 20*log10(abs(Whn)));
+title('Hanning Window Spectrum');
+xlabel('Normalized Frequency'); ylabel('Magnitude (dB)');
+legend('23UEC095');
+
+subplot(4,2,4);
+plot(W/pi, angle(Whn)); 
+title('Hanning Window Phase');
+xlabel('Normalized Frequency'); ylabel('Phase (radians)');
+legend('23UEC095');
+
+subplot(4,2,5);
+p3 = plot(W/pi, 20*log10(abs(Whm)));
+title('Hamming Window Spectrum');
+xlabel('Normalized Frequency '); ylabel('Magnitude (dB)');
+legend('23UEC095');
+
+subplot(4,2,6);
+plot(W/pi, angle(Whm)); 
+title('Hamming Window Phase');
+xlabel('Normalized Frequency'); ylabel('Phase (radians)');
+legend('23UEC095');
+
+subplot(4,2,7);
+p4 = plot(W/pi, 20*log10(abs(WB))); 
+title('Blackman Window Spectrum');
+xlabel('Normalized Frequency '); ylabel('Magnitude (dB)');
+legend('23UEC095');
+
+subplot(4,2,8);
+plot(W/pi, angle(WB));
+title('Blackman Window Phase');
+xlabel('Normalized Frequency'); ylabel('Phase (radians)');
+legend('23UEC095');
+
